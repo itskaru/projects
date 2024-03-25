@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHILE</title>
+
+    <style>
+        * {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        body {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        #main_div > div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            border: solid;
+            margin: 10px auto;
+            padding: 20px;
+            width: 70%;
+            box-shadow: 5px 5px black;
+            background-color: white;
+        }
+        
+        #div_resultado {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #div_resultado > div{
+            margin: 10px;
+            border: solid;
+            padding: 20px;
+            min-width: 200px;
+        }
+
+        .text-center{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="main_div">
+        <div>
+            <h2>INTRODUCE EL NUM. DE VECES A MOSTRAR EL BUCLE.</h2>
+            
+            <label for="input_numberOfTimes">Numero de veces:</label>
+            <input type="number" id="input_numberOfTimes" placeholder="0">
+            <br>
+
+            <select id="selector_columna">
+                <option value="1">Columna 1.</option>
+                <option value="2">Columna 2.</option>
+                <option value="3">Columna 3.</option>
+            </select>
+
+            <button onclick="main(document.getElementById('selector_columna').value)">Ejecutar</button>
+        </div>
+        <div>
+            <h3>RESULTADO:</h3>
+            <div id="div_resultado">
+                <div>
+                    <p class="text-center">Columna 1</p>
+                    <p class="text-center" id="p_objetive1"></p>
+                </div>
+                <div>
+                    <p class="text-center">Columna 2</p>
+                    <p class="text-center" id="p_objetive2"></p>
+                </div>
+                <div>
+                    <p class="text-center">Columna 3</p>
+                    <p class="text-center" id="p_objetive3"></p>
+                </div>
+            </div>
+    </div>
+    <script>
+        function main(numColumna){
+
+            let p_objetive;
+
+            if (numColumna == 1){
+                p_objetive = document.getElementById("p_objetive1");
+            } else if (numColumna == 2){
+                p_objetive = document.getElementById("p_objetive2");
+            } else if (numColumna == 3){
+                p_objetive = document.getElementById("p_objetive3");
+            } else {
+                console.log("Numero de columna no valido.");
+            }
+            
+            let numbertOfTimes = Number(document.getElementById("input_numberOfTimes").value);
+            let i = 0;
+            
+            p_objetive.innerHTML = "";
+
+            while (i < numbertOfTimes){
+                p_objetive.innerHTML += "Paso por el bucle " + i + "<br>";
+                i ++
+            }
+
+        }
+    </script>
+</body>
+</html>

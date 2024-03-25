@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOR</title>
+
+    <style>
+        * {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        body {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        #main_div > div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            border: solid;
+            margin: 10px auto;
+            padding: 20px;
+            width: 40vw;
+            box-shadow: 5px 5px black;
+            background-color: white;
+        }
+
+        #main_div div:nth-child(2){
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="main_div">
+        <div>
+            <h2>INTRODUCE EL NUM. DE VECES A MOSTRAR LA CADENA.</h2>
+
+            <label for="input_stringToRepeat">Cadena a repetir:</label>
+            <input type="text" id="input_stringToRepeat" placeholder="Ejemplo.">
+            <br><br>
+
+            <label for="input_numberOfTimes">Numero de veces:</label>
+            <input type="number" id="input_numberOfTimes" placeholder="0">
+            <br><br>
+
+            <button onclick="main()">Ejecutar</button>
+        </div>
+        <div>
+            <h3>RESULTADO:</h3>
+            <p id="p_repeat"></p>
+        </div>
+    </div>
+    <script>
+        function main(){
+            let stringToRepeat = document.getElementById("input_stringToRepeat").value;
+            let numbertOfTimes = Number(document.getElementById("input_numberOfTimes").value);
+            const p_objetive = document.getElementById("p_repeat");
+
+            for (let i = 0; i < numbertOfTimes ; i++){
+                p_objetive.append(stringToRepeat+" ")
+            }
+
+        }
+    </script>
+</body>
+</html>

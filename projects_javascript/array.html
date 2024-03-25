@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+
+    <button onclick="array_for(), array_while()">Ejecutar los dos.</button>
+    <br><br>
+    
+    <select id="seleccion">
+        <option value="">Selecciona una opcion.</option>
+        <option value="for">For.</option>
+        <option value="while">While.</option>
+    </select>
+    <br>
+
+    <button onclick="array_switch()">Ejecutar seleccionado.</button>
+
+    <div id="div_objetivo">
+        <p>Ejercicio For.</p>
+        <div></div>
+        
+        <p>Ejercicio While.</p>
+        <div></div>
+    </div>
+
+    <script>
+        const divObjetivo_divs = document.getElementById("div_objetivo").getElementsByTagName("div");
+
+        let primerArray = [];
+        let segundoArray = ["1","2","3"];
+        let tercerArray = [22,56,"pos. 2"];
+
+        let arrayNombres = ["Robert", "Juan", "Carlos"];
+
+        function array_for(){
+            for (let i = 0; i < arrayNombres.length; i++){
+                divObjetivo_divs[0].innerHTML += arrayNombres[i] + "<br>";
+            }
+        }
+
+        function array_while(){
+            var cont = 0;
+            while(cont < arrayNombres.length){
+                divObjetivo_divs[1].innerHTML += arrayNombres[cont] + "<br>";
+                cont += 1;
+            }
+        }
+
+        function array_switch(){
+            const opcion = document.getElementById("seleccion").value;
+
+            switch (opcion){
+                case "for":
+                    array_for();
+                    break;
+                case "while":
+                    array_while();
+                    break;
+            }
+        }
+
+        
+
+    </script>
+</body>
+</html>
